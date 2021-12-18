@@ -13,7 +13,7 @@ export async function main(denops: Denops): Promise<void> {
     async deinStar(_args: unknown): Promise<void> {
       const token = await vars.g.get(denops, "dps_dein_star_token");
       const debug = await vars.g.get(denops, "dps_dein_star_debug");
-      const plugins = await vars.g.get(denops, "dein#_plugins");
+      const plugins = await denops.call("dein#get");
       const ignoreUsers =
         await vars.g.get(denops, "dps_dein_star_ignore_users") || [];
       ensureString(token);
